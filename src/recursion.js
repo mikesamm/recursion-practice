@@ -76,16 +76,31 @@ var sumBelow = function(n, sum=0) {
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y, output=[]) {
-  // base case
-  if (x === y - 1){
+  // base / edge cases
+  if (x === y){
     return output;
-  } else if (x === y){
+  } else if (x === y - 1){
     return output;
-  }
-  // recursion
-  output.push(x + 1);
+  } 
+  
+  if (x < y){
+    // base case handled above
+    // recursion
+    output.push(x + 1);
+  
+    return range(x + 1, y, output)
 
-  return range(x + 1, y, output)
+  } else if (x > y){
+    // base case
+    if (x === y + 1){
+      return output;
+    }
+    // recursion
+    output.push(x - 1);
+
+    return range(x - 1, y, output);
+  }
+  
 };
 
 // 7. Compute the exponent of a number.
@@ -94,6 +109,12 @@ var range = function(x, y, output=[]) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  // base case
+  if (exp === 0){
+    return 1;
+  }
+  // recursion
+
 };
 
 // 8. Determine if a number is a power of two.
@@ -103,8 +124,16 @@ var exponent = function(base, exp) {
 var powerOfTwo = function(n) {
 };
 
-// 9. Write a function that accepts a string a reverses it.
-var reverse = function(string) {
+// 9. Write a function that accepts a string and reverses it.
+var reverse = function(string, revString='') {
+  // base case 
+  if (string.length === 0){
+    return revString;
+  }
+  // recursion
+  revString += string[string.length - 1];
+
+  return reverse(string.slice(0, string.length - 1), revString);
 };
 
 // 10. Write a function that determines if a string is a palindrome.
@@ -113,11 +142,17 @@ var palindrome = function(string) {
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
-// modulo(5,2) // 1
-// modulo(17,5) // 2
-// modulo(22,6) // 4
-var modulo = function(x, y) {
+// modulo(5,2) // 1 ... 2r1
+// modulo(17,5) // 2 ... 3r2
+// modulo(22,6) // 4 ... 3r4
+var modulo = function(x, y, remainder=0) {
+  // base case
+  if (y < x){}
+
+  // recursion
+  x = x / y
   
+  return modulo(x, y, remainder);
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
