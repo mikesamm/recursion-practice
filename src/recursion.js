@@ -33,6 +33,7 @@ var sum = function(array, add=0) {
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  // skip for now
 };
 
 // 4. Check if a number is even.
@@ -146,24 +147,20 @@ var palindrome = function(string) {
 // modulo(17,5) // 2 ... 3r2
 // modulo(22,6) // 4 ... 3r4
 var modulo = function(x, y, remainder=0) {
-  // base case
-  if (y < x){}
-
-  // recursion
-  x = x / y
-  
-  return modulo(x, y, remainder);
+  // skip for now
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
+  // skip for now
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
 var divide = function(x, y) {
+  // skip for now
 };
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers.  The GCD of two
@@ -215,6 +212,7 @@ var rMap = function(array, callback, output=[]) {
 // countKeysInObj(testobj, 'r') // 1
 // countKeysInObj(testobj, 'e') // 2
 var countKeysInObj = function(obj, key) {
+  // skip for now
 };
 
 // 22. Write a function that counts the number of times a value occurs in an object.
@@ -222,11 +220,13 @@ var countKeysInObj = function(obj, key) {
 // countValuesInObj(testobj, 'r') // 2
 // countValuesInObj(testobj, 'e') // 1
 var countValuesInObj = function(obj, value) {
+  // skip for now
 };
 
 // 23. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.
 var replaceKeysInObj = function(obj, key, newKey) {
+  // skip for now
 };
 
 // 24. Get the first n Fibonacci numbers.  In the Fibonacci Sequence, each subsequent
@@ -235,6 +235,7 @@ var replaceKeysInObj = function(obj, key, newKey) {
 // fibonacci(5);  // [0, 1, 1, 2, 3, 5]
 // Note:  The 0 is not counted.
 var fibonacci = function(n) {
+  // skip for now
 };
 
 // 25. Return the Fibonacci number located at index n of the Fibonacci sequence.
@@ -266,11 +267,13 @@ var capitalizeFirst = function(array) {
 // };
 // nestedEvenSum(obj1); // 10
 var nestedEvenSum = function(obj) {
+  // skip for now
 };
 
 // 29. Flatten an array containing nested arrays.
 // Example: flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
 var flatten = function(arrays) {
+  // skip for now
 };
 
 // 30. Given a string, return an object containing tallies of each letter.
@@ -290,6 +293,7 @@ var compress = function(list) {
 // itself.
 // Example: augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
 var augmentElements = function(array, aug) {
+  // skip for now
 };
 
 // 33. Reduce a series of zeroes to a single 0.
