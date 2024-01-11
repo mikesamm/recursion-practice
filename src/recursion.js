@@ -138,24 +138,20 @@ var reverse = function(string, revString='') {
 };
 
 // 10. Write a function that determines if a string is a palindrome.
-var palindrome = function (string, reverse = "") {
-
+var palindrome = function (string) {
+  // standardize string
+  let charsOnly = string.replace(/\s/g, "").toLowerCase()
+  
   // base case
-  if (string.length === 0) {
-    return string === reverse;
+  if (charsOnly.length <= 1){
+    return true;
   }
-  
   // recursion
-  // build the reverse string to then compare to initial string argument
-  // add last letter of string to reverse
-  reverse += string[string.length - 1];
-  // slice last letter from string
-  string = string.slice(0, string.length - 1);
-  
-  // console.log("reverse", reverse);
-  // console.log("string", string);
-  
-  return palindrome(string, reverse);
+  if (charsOnly[0] !== charsOnly[charsOnly.length -1]){
+    return false;
+  }
+    
+  return palindrome(charsOnly.slice(1, charsOnly.length -1));
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
