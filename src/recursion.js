@@ -243,33 +243,89 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  // base case
+  if (str1.length === 0 && str2.length === 0){
+    return true;
+  }
+
+  // recursion
+  if (str1[0] === str2[0]){
+    return compareStr(str1.slice(1), str2.slice(1));
+  } else {
+    return false;
+  }
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
+var createArray = function(str, output=[]){
+  // base case
+  if (str.length === 0){
+    return output;
+  }
+
+  // recursion
+  output.push(str[0]);
+
+  return createArray(str.slice(1), output);
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function (array, reverse=[]) {
+  // base case
+  if (array.length === 0){
+    return reverse;
+  }
+
+  // recursion
+  reverse.unshift(array[0]);
+
+  return reverseArr(array.slice(1), reverse)
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = function(value, length, array=[]) {
+  // base case 
+  if (length === 0){
+    return array;
+  }
+
+  // recursion
+  array.push(value);
+
+  return buildList(value, length - 1, array);
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, count=0) {
+  // base case
+  if (array.length === 0){
+    return count;
+  }
+
+  // recursion
+  if (array[0] === value){
+    count++;
+  }
+  return countOccurrence(array.slice(1), value, count);
 };
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback, output=[]) {
-  
+    // base case
+    if (array.length === 0){
+      return output;
+    }
+
+    // recursion
+    output.push(callback(array[0]));
+
+    return rMap(array.slice(1), callback, output);
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
@@ -308,7 +364,21 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {
+var nthFibo = function(n, index=2, fiboArray=[0, 1]) {
+  // base case
+  if (n < 0){
+    return null;
+  } else if (n < index){
+    return fiboArray[n]
+  } else if (n === index - 1){
+    return fiboArray[n];
+  } 
+
+  // recursion
+  // build fibonacci sequence by index
+  fiboArray[index] = fiboArray[index - 2] + fiboArray[index - 1]; 
+
+  return nthFibo(n, index + 1, fiboArray)
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
