@@ -513,23 +513,50 @@ var minimizeZeroes = function(array, singleZero=[]) {
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array, alternator=[]) {
+var alternateSign = function(array, alt=[]) {
   // base case
   if (array.length === 0){
-    return alternator;
+    return alt;
   }
 
   // recursion
-  // if number is positive
-  alternator.push(array[0]);
+  // push number to new array
+  alt.push(array[0]);
+  // if new array is on an even index, the element will be a negative number
+  // else if new array on odd index, the element will be a positive number
+  if (alt.length % 2 !== 0 && array[0] <0){
+    alt[alt.length - 1] = -array[0];
+  } else if (alt.length % 2 === 0 && array[0] >= 0){
+    alt[alt.length - 1] = -array[0];
+  }
 
-  return alternateSign(array.slice(1), alternator);
+  return alternateSign(array.slice(1), alt);
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+var numToText = function(str, newStr='') {
+  // number word array
+  let digitWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+
+  // base case 
+  if (str.length === 0){
+    return newStr;
+  }
+
+  // recursion
+  // if char is a digit
+  if (str[0] >= '0' && str[0] <= '9'){
+    // new digit string variable, assigned to corresponding index in digitWords array
+    let digStr = digitWords[str[0]];
+    // add to output string
+    newStr += digStr;  
+  } else {
+    newStr += str[0];
+  }
+
+  return numToText(str.slice(1), newStr);
 };
 
 // *** EXTRA CREDIT ***
